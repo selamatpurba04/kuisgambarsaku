@@ -24,10 +24,12 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
+Clone the repository
 ```
 sudo git clone https://github.com/selamatpurba04/kuisgambarsaku.git kuisgambarsaku
 ```
 
+install the package
 ```
 cd kuisgambarsaku
 sudo npm install
