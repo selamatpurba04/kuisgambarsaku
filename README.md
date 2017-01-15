@@ -1,6 +1,11 @@
-# nodejs-express-handlebars-adminlte
-template nodejs express handlebars adminLte
+#KUIS GAMBAR SAKU
 
-install your nodejs
-git pull this
-enjoy the template
+Sebuah game sederhana berbasis web, berikut rincian nya :
+- Backend : <a href="">NodeJS</a>
+- Database : MongoDB
+-
+
+sudo git clone https://github.com/selamatpurba04/kuisgambarsaku.git kuisgambarsaku
+sudo npm install
+sudo mongod --dbpath=data
+sudo nodejs index.js
