@@ -24,28 +24,28 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Installing
 
-Clone the repository
+- Clone the repository
 ```
 sudo git clone https://github.com/selamatpurba04/kuisgambarsaku.git kuisgambarsaku
 ```
 
-install the package
+- install the package
 ```
 cd kuisgambarsaku
 sudo npm install
 ```
 
-install <a href="https://www.mongodb.com/">MongoDB</a> and make sure mongodb service already running
+- install <a href="https://www.mongodb.com/">MongoDB</a> and make sure mongodb service already running
 ```
 sudo service mongod status
 ```
 
-run mongod with a local data directory
+- run mongod with a local data directory
 ```
 sudo mongod --dbpath=data
 ```
 
-run the application
+- run the application
 ```
 sudo nodejs index.js
 ```

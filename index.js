@@ -1,3 +1,10 @@
+/////////////////////////////////////////////////////////////
+// Kuis Gambar Saku
+// made by Selamat Purba
+// Run this script using node js to run the application
+/////////////////////////////////////////////////////////////
+
+
 var express 		= 	require('express'); //node js framework
 var app 			= 	express();
 var fs 				= 	require('fs'); // read file local
@@ -14,7 +21,7 @@ var _crud	 		= 	require( __dirname + '/tools/crud'); // crud function to db
 var _level	 		= 	require( __dirname + '/tools/level'); // process get level and next level
 var _common	 		= 	require( __dirname + '/tools/common'); //common function
 
-app.set("view engine","handlebars");//setting helers for handlebars as the engine template  
+app.set("view engine","handlebars");//setting helpers for handlebars as the engine template  
 
 app.engine("handlebars", exphbs({
 	
@@ -54,6 +61,10 @@ app.use(function (req, res, next) {// a middleware function
 
 app.use('/static',express.static(__dirname + '/views/layouts')); //get the static files, those are css & js
 app.use('/images',express.static(__dirname + '/images')); //get the static files, those are images
+
+/////////////////////////////
+// area get
+/////////////////////////////
 
 app.get('/', function (req, res) { //index
 
@@ -127,7 +138,9 @@ app.get('/success/:id', function (req, res) { //success page
 
 });
 
-//area post code
+///////////////////////////////
+// area post
+///////////////////////////////
 
 app.post('/', function(req, res) { //posted index
 
@@ -141,7 +154,7 @@ app.post('/', function(req, res) { //posted index
 	  
 	  		assert.equal(null, err);
 
-	  		_crud.findAPlayer(db, data, function(docs) { //Use username already existed or not
+	  		_crud.findAPlayer(db, data, function(err, docs) { //Use username already existed or not
 
 	  			if( docs.length > 0 ) {
 

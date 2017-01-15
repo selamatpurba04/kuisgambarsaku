@@ -1,6 +1,8 @@
 var assert = require('assert');
 
-//player
+/////////////////////////////////////
+// function for player
+/////////////////////////////////////
 
 function insertPlayer (db, data, callback) {
 
@@ -21,13 +23,12 @@ function insertPlayer (db, data, callback) {
 
 function findAPlayer(db, data, callback){
   
-  	var collection = db.collection('player');
+  var collection = db.collection('player');
 
 	collection.find(data).toArray(function(err, docs) {
 
-	    assert.equal(null, err);
-
- 		callback(docs)
+    assert.equal(null, err);
+ 		callback(err, docs)
 
 	});
 
@@ -36,17 +37,37 @@ function findAPlayer(db, data, callback){
 function findAllPlayer (db, callback) {
 
   // Get the player collection
-  var collection = db.collection('playerRecord');
+  var collection = db.collection('player');
 
   // Find some player
   collection.find({}).toArray(function(err, docs) {
 
     assert.equal(err, null);
-    callback(docs);
+    callback(err, docs);
 
   });
 
 }
+
+function deletePlayer (db, data, callback) {
+
+  // Get the player collection
+  var collection = db.collection('player');
+
+  // Find some player
+  collection.deleteMany( data, function(err, docs) {
+
+    assert.equal(null, err);
+    db.close();
+    callback(err, docs);
+
+  });
+
+}
+
+/////////////////////////////////////
+// function for playerRecord
+/////////////////////////////////////
 
 function findPlayerRecord(db, data, callback){
   
@@ -80,21 +101,42 @@ function insertPlayerRecord (db, data, callback) {
 
 }
 
-function deletePlayerRecord (db, callback) {
+function deletePlayerRecord (db, data, callback) {
 
   // Get the player collection
   var collection = db.collection('playerRecord');
 
   // Find some player
-  collection.deleteMany({uid:'587776772f29432db64fcfe9'}, function(err, r) {
+  collection.deleteMany( data, function(err, r) {
 
     assert.equal(null, err);
-
     db.close();
     
   });
 
 }
+
+function updatePlayerRecord(db, where, set, callback){
+
+  var collection = db.collection('playerRecord');
+
+  collection.findOneAndUpdate( where, {$inc: set}, {
+
+        returnOriginal: false,
+        upsert: true
+
+    }, function(err, r) {
+      
+      db.close();
+      callback(err, r);
+
+    });
+
+}
+
+/////////////////////////////////////
+// function for answering
+/////////////////////////////////////
 
 function findAnswering(db, data, callback){
   
@@ -128,27 +170,10 @@ function insertAnswering (db, data, callback) {
 
 }
 
-function updatePlayerRecord(db, where, set, callback){
-
-  	var collection = db.collection('playerRecord');
-
-	collection.findOneAndUpdate( where, {$inc: set}, {
-
-        returnOriginal: false,
-        upsert: true
-
-    }, function(err, r) {
-    	
-    	db.close();
-    	callback(err, r);
-
-    });
-
-}
-
 exports.insertPlayer = insertPlayer;
 exports.findAllPlayer = findAllPlayer;
 exports.findAPlayer = findAPlayer;
+exports.deletePlayer = deletePlayer;
 exports.findPlayerRecord = findPlayerRecord;
 exports.insertPlayerRecord = insertPlayerRecord;
 exports.deletePlayerRecord = deletePlayerRecord;
