@@ -11,10 +11,12 @@
   "dependencies": {
     "admin-lte": "^2.3.2",
     "body-parser": "^1.14.1",
+    "cookie-parser": "^1.4.3",
     "datatables": "^1.10.9",
     "express": "^4.13.3",
     "express-generator": "^4.13.1",
     "express-partial": "^0.1.0",
+    "express-session": "^1.14.2",
     "express3-handlebars": "^0.5.2",
     "handlebars": "^4.0.5",
     "mongodb": "^2.2.20",
