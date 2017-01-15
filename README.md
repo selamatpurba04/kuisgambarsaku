@@ -5,7 +5,10 @@ A simple web based game, there are the components to build it, such as :
 - Backend : <a href="https://nodejs.org/en/">NodeJS</a>
 - Database : <a href="https://www.mongodb.com/">MongoDB</a>
 - NodeJS Framework : <a href="http://expressjs.com/">Express JS</a>
-- Template Engine : <a href="http://handlebarsjs.com">Express JS</a>
+- Template Engine : <a href="http://handlebarsjs.com">Handlebars JS</a>
+- Package Manager NodeJS : <a href="https://www.npmjs.com/">NPM</a>
+- Package Manager for web : <a href="https://bower.io/">Bower</a>
+- Automation Build Tool : <a href="http://gulpjs.com//">Gulp</a>
 
 and another useful tools :
 
@@ -29,33 +32,33 @@ These instructions will get you a copy of the project up and running on your loc
 git clone https://github.com/selamatpurba04/kuisgambarsaku.git kuisgambarsaku
 ```
 
-- install npm packages
+- Install <a href="https://www.npmjs.com/">NPM</a> packages
 ```
 cd kuisgambarsaku
 npm install
 ```
 
-- install bower packages
+- Install <a href="https://bower.io/">Bower</a> packages
 ```
 bower install
 ```
 
-automate build
+- Automate build by using <a href="http://gulpjs.com//">Gulp</a>
 ```
 gulp
 ```
 
-- install <a href="https://www.mongodb.com/">MongoDB</a> and make sure mongodb service already running
+- Install <a href="https://www.mongodb.com/">MongoDB</a> and make sure mongodb service already running
 ```
 service mongod status
 ```
 
-- run mongod with a local data directory
+- Run mongod with a local data directory
 ```
 mongod --dbpath=data
 ```
 
-- run the application
+- Run the application
 ```
 nodejs index.js
 ```
