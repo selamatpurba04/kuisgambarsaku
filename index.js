@@ -1,7 +1,6 @@
 var express 		= 	require('express'); //node js framework
 var app 			= 	express();
 var fs 				= 	require('fs'); // read file local
-var hb 				= 	require('handlebars'); // template engine
 var exphbs 			= 	require('express3-handlebars'); // template engine
 var bodyParser 		= 	require('body-parser');
 var MongoClient 	= 	require('mongodb').MongoClient;
