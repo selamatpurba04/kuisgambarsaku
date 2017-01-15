@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Kuis Gambar Saku</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <!-- Bootstrap 3.3.5 -->
+
+    {{> script }}
+
+    {{> stylesheet }}
+
+  </head>
+
+  <body class="hold-transition sidebar-mini" style="background-image:url(/images/bg_pattern.png)">
+    
+    <div class="wrapper">
+
+      <!-- generate body -->
+      <div class="classBreadcrumbs text-center">
+        
+        {{#if value}}
+
+          <div class="scoreFrame">
+            
+            <span class="valueFrame">
+            
+              {{ value }}
+
+            </span>
+
+          </div>
+
+        {{/if}}
+
+        {{#if breadcrumbs}}
+
+          <p class="animateBreadcrumbs pBreadcrumbs">{{ breadcrumbs }}</p>
+
+        {{/if}}
+
+      </div>
+
+      {{{ body }}}
+
+    
+    </div>
+    
+  </body>
+
+  {{> footScript }}
+
+</html>

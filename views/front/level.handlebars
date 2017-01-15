@@ -1,0 +1,61 @@
+<!-- box-body -->
+<div class="box-body">
+
+  <form role="form" method="post">
+    <!-- text input -->
+  
+    <div class="form-group clearfix"></div>
+
+    <div class="form-group">
+
+      <div class="row">
+
+          <div class="col-lg-1"></div>
+
+          <div class="col-lg-10">
+
+            {{#each listPuzzle}}
+              
+              <div data-aos="zoom-in-up" data-aos-anchor-placement="bottom-bottom" class="col-sm-12 col-xs-12 col-md-4 col-lg-2 col-half-offset thumbnail">
+
+                <a href="/guess/level/{{Question}}">
+
+                  {{#if answered}}  
+                    
+                    <div class="img-success"><i class="fa fa-check alert alert-success success-rounded" aria-hidden="true"></i></div>
+
+                  {{/if}}
+
+                  <img src="/images/{{Question}}.jpg" width="180" class="img-responsive thumbnailImage">
+                </a>
+
+              </div>
+            
+            {{/each}}
+
+          </div>
+
+          <div class="col-lg-1"></div>
+
+      </div>
+
+      <div class="form-group clearfix"></div>
+      
+      <div class="col-lg-12">
+
+        <div class="col-lg-5"></div>
+
+        <div class="col-lg-2 thumbnail thumbnailLogo">
+
+          <img src="/images/logo.png" class="img-responsive" width="200">
+
+        </div>
+
+        <div class="col-lg-5"></div>
+
+      </div>
+
+  </form>
+
+</div>
+<!-- /.box-body -->
