@@ -50,7 +50,6 @@ app.use(function (req, res, next) {// a middleware function
 
 	}
 
-
 });
 
 app.use('/static',express.static(__dirname + '/views/layouts')); //get the static files, those are css & js
@@ -85,7 +84,6 @@ app.get('/level', function (req, res) { //choose level
 		});
 
 	});
-
 
 });
 
@@ -169,7 +167,6 @@ app.post('/', function(req, res) { //posted index
 
 		});
 
-
 	} else { //handle not inputed username
 
 		ErrorUsername = '<b>Oops!</b> Username Tidak Boleh Kosong..';	
@@ -252,7 +249,6 @@ app.post('/guess/level/:id', function(req, res) { // get post guess level
 
 	  	}
 
-
 	});
 
 });
@@ -264,3 +260,5 @@ var server = app.listen(3000, function () {//run app
 
 	console.log('App listening at http://%s:%s', host, port);
 });
+
+module.exports = server;
