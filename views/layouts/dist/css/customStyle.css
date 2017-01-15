@@ -30,6 +30,7 @@
 
     .img-success{
 
+      font-size: 20px;
       margin:5px 5px; 
       position:absolute;
 
@@ -166,5 +167,5 @@
   .img-success{
 
     position:absolute;
-
+    font-size: 20px;
   }

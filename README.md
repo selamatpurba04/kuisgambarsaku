@@ -26,26 +26,36 @@ These instructions will get you a copy of the project up and running on your loc
 
 - Clone the repository
 ```
-sudo git clone https://github.com/selamatpurba04/kuisgambarsaku.git kuisgambarsaku
+git clone https://github.com/selamatpurba04/kuisgambarsaku.git kuisgambarsaku
 ```
 
-- install the package
+- install npm packages
 ```
 cd kuisgambarsaku
-sudo npm install
+npm install
+```
+
+- install bower packages
+```
+bower install
+```
+
+automate build
+```
+gulp
 ```
 
 - install <a href="https://www.mongodb.com/">MongoDB</a> and make sure mongodb service already running
 ```
-sudo service mongod status
+service mongod status
 ```
 
 - run mongod with a local data directory
 ```
-sudo mongod --dbpath=data
+mongod --dbpath=data
 ```
 
 - run the application
 ```
-sudo nodejs index.js
+nodejs index.js
 ```

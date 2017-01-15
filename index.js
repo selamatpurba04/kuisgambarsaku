@@ -59,7 +59,7 @@ app.use(function (req, res, next) {// a middleware function
 
 });
 
-app.use('/static',express.static(__dirname + '/views/layouts')); //get the static files, those are css & js
+app.use('/static',express.static(__dirname + '/views/dist')); //get the static files, those are css & js
 app.use('/images',express.static(__dirname + '/images')); //get the static files, those are images
 
 /////////////////////////////
