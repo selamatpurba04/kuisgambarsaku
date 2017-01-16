@@ -1,62 +1,75 @@
+<!-- box-body -->
+<div class="box-body">
 
-  <!-- /.box-header -->
-  <div class="box-body">
-    <form role="form" method="post">
-      <!-- text input -->
-    
-      <div class="form-group">
+  <form role="form" method="post">
+    <!-- text input -->
+  
+    <div class="form-group">
 
-        <div class="col-lg-12">
-            
-            <div class="col-sm-4"></div>
+      <div class="col-lg-12">
+          
+          <div class="col-sm-4"></div>
 
-            <div class="col-sm-4">
-              <a class="thumbnail animated bounce" href="/guess/level/{{Question}}">
-                <img src="/images/{{Question}}.jpg" width="400" class="img-responsive thumbnailImage">
-              </a>
-            </div>
-            
-            <div class="col-sm-4"></div>
-        </div>
+          <div class="col-sm-4">
 
-        <div class="col-lg-12">
-
-          <div class="col-lg-4"></div>
-          <div class="col-lg-4">
-
-            <input type="text" name="answer" class="form-control input-rounded" value="{{ answer }}" placeholder="Jawab">
-
-            <div class="errorAnswering">
-
-            {{#if ErrorAnswer }}
-
-              <div class="alert alert-danger alert-rounded text-center animated shake" role="alert"> 
-              
-                {{{ ErrorAnswer }}}
-
-              </div>
-
-            {{/if}}
-            </div>
+            <a class="thumbnail animated bounce" href="/guess/level/{{Question}}">
+              <img src="/images/{{Question}}.jpg" width="400" class="img-responsive thumbnailImage">
+            </a>
 
           </div>
-          <div class="col-lg-4"></div>
-
-        </div>
-
-        <div class="col-lg-12">
-          <div class="col-lg-4"></div>
-          <div class="col-lg-4 text-center">
-
-            <button type="submit" class="btn button_blue"><span class="btn-submitNext">SUBMIT</span></button>
-            <br>
-            <a href="/level">Kembali ke Level</a>
-          </div>
-          <div class="col-lg-4"></div>
-
-        </div>
+          
+          <div class="col-sm-4"></div>
 
       </div>
-    </form>
-  </div>
-  <!-- /.box-body -->
+
+      <div class="col-lg-12">
+
+        <div class="col-lg-4"></div>
+
+        <div class="col-lg-4">
+
+          <input type="text" name="answer" class="form-control input-rounded" value="{{ answer }}" placeholder="Jawab">
+
+          <div class="errorAnswering">
+
+          {{#if ErrorAnswer }}
+
+            <div class="alert alert-danger alert-rounded text-center animated shake" role="alert"> 
+            
+              {{{ ErrorAnswer }}}
+
+            </div>
+
+          {{/if}}
+
+          </div>
+
+        </div>
+
+        <div class="col-lg-4"></div>
+
+      </div>
+
+      <div class="col-lg-12">
+
+        <div class="col-lg-4"></div>
+
+        <div class="col-lg-4 text-center">
+
+          <button type="submit" class="btn button_blue"><span class="btn-submitNext">SUBMIT</span></button>
+
+          <br>
+
+          <a href="/level">Kembali ke Level</a>
+        </div>
+
+        <div class="col-lg-4"></div>
+
+      </div>
+
+    </div>
+
+  </form>
+  
+</div>
+<!-- /.box-body -->

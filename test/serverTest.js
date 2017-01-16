@@ -100,9 +100,10 @@ describe('Test DB', function() {
 
   it('should insert player to db', function() {
 
-    var data = { username : "duma" }
 
     MongoClient.connect(urlDB, function(err, db) {//Use connect method to connect to the server
+
+      var data = { username : "duma" }
 
       _crud.insertPlayer (db, data, function(docs){
 
@@ -114,18 +115,58 @@ describe('Test DB', function() {
 
   });
 
-  it('should find player to db', function() {
+  it('should find player in db', function() {
 
-    var data = { username : "duma" }
 
     MongoClient.connect(urlDB, function(err, db) {//Use connect method to connect to the server
 
-      _crud.findAPlayer(db, data, function(docs){
+      var data = { username : "sunaryo" }
+
+      assert.equal(err, null);
+
+      _crud.findAPlayer(db, data, function(err, docs){
 
         assert.equal(err, null);
 
       });
     
+    });
+
+  });
+
+  it('should update player record to db', function() {
+
+
+    MongoClient.connect(urlDB, function(err, db) {//Use connect method to connect to the server
+    
+      var where = { uid : "587c5541b4cded30538cd1f8" }
+      var set = { current_value : 10 }
+
+      assert.equal(err, null);
+
+      _crud.updatePlayerRecord(db, where, set, function(err, docs){
+
+        assert.equal(err, null);
+        assert.equal(docs.length,  1);
+
+      });
+    
+    });
+
+  });
+
+  it('find player record from db', function() {
+
+    var data = { uid : "587c584d5c89a7353658d396" }
+
+    MongoClient.connect(urlDB, function(err, db) {//Use connect method to connect to the server
+
+      _crud.findPlayerRecord(db, data, function(err, docs){
+
+        assert.equal(err, null);
+
+      });
+
     });
 
   });
@@ -143,6 +184,23 @@ describe('Test DB', function() {
         
       });
     
+    });
+
+  });
+
+  it('find high scrore all player', function() {
+
+    MongoClient.connect(urlDB, function(err, db) {//Use connect method to connect to the server
+   
+    var data = { uid : "587c584d5c89a7353658d396" }
+
+      _crud.findHighscore(db, data, function(err, docs){
+
+      
+        assert.equal(err, null);
+
+      });
+
     });
 
   });

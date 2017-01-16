@@ -168,4 +168,17 @@
 
     position:absolute;
     font-size: 20px;
+
+  }
+
+  .margintop10px{
+
+    margin-top:10px;
+
+  }
+
+  .whiteBackground{
+    
+    background-color:#fff;
+
   }

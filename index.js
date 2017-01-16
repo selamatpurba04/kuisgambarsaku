@@ -98,9 +98,9 @@ app.get('/level', function (req, res) { //choose level
 
 });
 
-app.get('/guess/level', function (req, res) { //return to choosing level
+app.get('/guess/level', function (req, res) { //redirect to congratulation if no puzzle unanswered
 
-	res.redirect('/level');
+	res.redirect('/congratulation');
 
 });
 
@@ -138,6 +138,46 @@ app.get('/success/:id', function (req, res) { //success page
 
 });
 
+app.get('/congratulation', function (req, res) { //congratulation page, is the page that show if all puzzle been answered
+
+	MongoClient.connect(urlDB, function(err, db) {//Use connect method to connect to the server
+	  
+  		assert.equal(null, err);
+
+  		_crud.findHighscore(db, {}, function(err, docs) { //find the list high score
+
+  			_crud.findPlayerRecord(db, { uid : req.session.uid }, function(err, docsRecord){ // find final score logged user
+				
+				var userHighscore =  ''+docsRecord[0].current_value; //get final score logged user
+
+				res.render("front/congratulation", {
+						
+					listHighscore : docs,
+					userHighscore : userHighscore,
+					CorrectAnswer : "<b>Hebat!</b> Semua Jawaban anda benar!",
+					breadcrumbs : "Nilai Kamu",
+					value : userHighscore,
+
+				});
+
+  			});
+
+		});
+
+	});
+
+});
+
+app.get('/keluar', function(req, res){ // request to logout
+
+	req.session.destroy(function(err) { // destroy the session
+
+		res.redirect('/');
+
+	})
+
+});
+
 ///////////////////////////////
 // area post
 ///////////////////////////////
@@ -165,7 +205,7 @@ app.post('/', function(req, res) { //posted index
 
 	  			}else{
 
-	  				_crud.insertPlayer(db, data, function(docs) { //inser data user if not existed yet in database
+	  				_crud.insertPlayer(db, data, function(err, docs) { //inser data user if not existed yet in database
 
 	  					req.session.username = username;
 	    				req.session.uid = docs.ops[0]._id;
@@ -234,9 +274,11 @@ app.post('/guess/level/:id', function(req, res) { // get post guess level
 
 		  				_crud.insertAnswering(db, dataInsert, function(err, docs) { //save to database data answered
 
-		  					var set = { "current_value" : 10 }
+		  					var set = { current_value : 10 }
 
 	  						_crud.updatePlayerRecord(db, {uid : req.session.uid}, set, function() {}); //increase current user's value
+	  						
+	  						db.close();
 
 		  				});
 
