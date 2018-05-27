@@ -1,4 +1,4 @@
-#KUIS GAMBAR SAKU
+# KUIS GAMBAR SAKU
 
 A simple web based game, there are the components to build it, such as :
 
